@@ -355,6 +355,7 @@ body {
   height: 44px;
   border-radius: 50%;
   color: var(--icon-main-color);
+  outline: none;
 }
 .social-icon {
   height: 20px;
@@ -380,7 +381,7 @@ body {
   height: 92px;
   border: 1px solid var(--icon-main-color);
   border-radius: 4px;
-
+  outline: none;
   color: var(--icon-main-color);
 }
 
