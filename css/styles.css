@@ -8,6 +8,7 @@
   --accent-color: #2196f3;
   --logo-color: #000000;
   --icon-main-color: #afb1b8;
+  --time-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html {
@@ -126,6 +127,7 @@ body {
   padding-bottom: 32px;
 
   color: var(--title-primary-text-color);
+  transition: color 250ms var(--time-function);
 
   font-weight: 500;
   /* font-size: 14px; наследуется из боди */
@@ -169,6 +171,8 @@ body {
 
   color: var(--primary-text-color);
   fill: var(--primary-text-color);
+  transition: color 250ms var(--time-function), fill 250ms var(--time-function);
+
   font-weight: 500;
   /* font-size: 14px; наследуется из боди */
   line-height: 1.14;
@@ -242,6 +246,7 @@ body {
   border: 1px solid transparent;
   color: var(--title-secondary-text-color);
   background-color: var(--accent-color);
+  transition: background-color 250ms var(--time-function);
 
   font-family: inherit;
   font-weight: 700;
@@ -377,6 +382,8 @@ body {
   border-radius: 50%;
   background-color: transparent;
   color: var(--icon-main-color);
+  transition: color 250ms var(--time-function),
+    background-color 250ms var(--time-function);
   outline: none;
 }
 .social-icon {
@@ -405,6 +412,8 @@ body {
   border-radius: 4px;
   outline: none;
   color: var(--icon-main-color);
+  transition: color 250ms var(--time-function),
+    border-color 250ms var(--time-function);
 }
 
 .client-icon {
@@ -433,6 +442,10 @@ body {
 
   color: var(--title-primary-text-color);
   background-color: var(--secondary-background-color);
+  transition: color 250ms var(--time-function),
+    background-color 250ms var(--time-function),
+    box-shadow 250ms var(--time-function);
+
   font-family: inherit;
   font-weight: 500;
   font-size: 16px;
@@ -457,24 +470,7 @@ body {
 }
 
 /* Секция превью проектов */
-.project-img-thumb {
-  position: relative;
-}
-.project-img-thumb .project-title {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  content: "";
-  width: 100%;
-  height: 100%;
-  padding: 63px 24px;
-  background-color: rgba(33, 150, 243, 0.9);
 
-  font-size: 18px;
-  line-height: calc(28 / 18);
-
-  color: var(--title-secondary-text-color);
-}
 .projects-preview-list {
   display: flex;
   flex-wrap: wrap;
@@ -495,12 +491,41 @@ body {
 }
 .projects-preview-list .project-link {
   display: block;
+  transition: box-shadow 250ms var(--time-function);
 }
 .projects-preview-list .project-link:focus,
 .projects-preview-list .project-link:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
+
+.project-img-thumb {
+  position: relative;
+  overflow: hidden;
+}
+.project-link:hover .project-title,
+.project-link:focus .project-title {
+  transform: translateY(0);
+}
+
+.project-img-thumb .project-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+  transform: translateY(101%);
+  transition: transform 250ms var(--time-function);
+
+  font-size: 18px;
+  line-height: calc(28 / 18);
+
+  color: var(--title-secondary-text-color);
+  background-color: rgba(33, 150, 243, 0.9);
+}
+
 .projects-preview-list .project-preview-name {
   color: var(--title-primary-text-color);
   font-weight: 700;
@@ -538,8 +563,8 @@ body {
 }
 .contact-footer {
   color: rgb(255, 255, 255, 0.6);
-  /* font-weight: 400; */
-  /* font-size: 14px; наследуется из боди */
+  transition: color 250ms var(--time-function);
+
   font-style: normal;
   line-height: 1.5;
 }
