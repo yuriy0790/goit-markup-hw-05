@@ -456,6 +456,24 @@ body {
 }
 
 /* Секция превью проектов */
+.project-img-thumb {
+  position: relative;
+}
+.project-img-thumb .project-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  font-size: 18px;
+  line-height: calc(28 / 18);
+
+  color: var(--title-secondary-text-color);
+}
 .projects-preview-list {
   display: flex;
   flex-wrap: wrap;
